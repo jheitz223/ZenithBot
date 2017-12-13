@@ -1,0 +1,11 @@
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\bin\Release\netcoreapp2.0\ZenithBot.deps.json
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\bin\Release\netcoreapp2.0\ZenithBot.runtimeconfig.json
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\bin\Release\netcoreapp2.0\ZenithBot.runtimeconfig.dev.json
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\bin\Release\netcoreapp2.0\ZenithBot.dll
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\bin\Release\netcoreapp2.0\ZenithBot.pdb
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\obj\Release\netcoreapp2.0\ZenithBot.csprojResolveAssemblyReference.cache
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\obj\Release\netcoreapp2.0\ZenithBot.csproj.CoreCompileInputs.cache
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\obj\Release\netcoreapp2.0\ZenithBot.AssemblyInfoInputs.cache
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\obj\Release\netcoreapp2.0\ZenithBot.AssemblyInfo.cs
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\obj\Release\netcoreapp2.0\ZenithBot.dll
+C:\Users\jheit\source\repos\ZenithBot\ZenithBot\obj\Release\netcoreapp2.0\ZenithBot.pdb

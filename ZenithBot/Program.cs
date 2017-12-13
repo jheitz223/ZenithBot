@@ -51,27 +51,23 @@ namespace ZenithBot {
 
         private async Task MessageReceived(SocketMessage message) {
 
-            //if (message.Content.Length >= 9) {
+            //TODO
+            //
+            //  -bad boi
 
-            //    int j = 1;
-            //    for (int i = 0; i < message.Content.Length; i++) {
+            Console.WriteLine(message.Author.Username);
 
-            //        if (message.Content.Length >= 9 && message.Content.Substring(i, (10 - j)).ToUpper() == "IM NOT GAY" && message.Author.Username == "@Volare#8079") {
+            if ((message.Content.ToUpper() == "IM NOT GAY" || message.Content.ToUpper() == "I'M NOT GAY") && message.Author.Username == "Volare") {
 
-            //            await message.Channel.SendMessageAsync("Yes, Socci, you *are* gay.");
-            //            break;
+                await message.Channel.SendMessageAsync("Yes, Socci, you *are* gay.");
 
-            //        }else if (message.Content.Length >= 10 && message.Content.Substring(i, (11 - j)).ToUpper() == "I'M NOT GAY") {
+            }
 
-            //            await message.Channel.SendMessageAsync("Yes, Socci, you *are* gay.");
-            //            break;
+            if (message.Content.ToUpper() == "ITS NOT A TRAP" || message.Content.ToUpper() == "SHES NOT A TRAP" || message.Content.ToUpper() == "SHE'S NOT A TRAP" || message.Content.ToUpper() == "IT'S NOT A TRAP") {
 
-            //        }
-            //        j++;
+                await message.Channel.SendMessageAsync("Sorry, but it's definitely a trap.");
 
-            //    }
-
-            //}
+            }
 
             if (message.Content.ToUpper() == "ZENITH, PING!" || message.Content.ToUpper() == "ZENITH, PING") {
 
@@ -79,11 +75,11 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content.Substring(0, 2).ToUpper() == "IM") {
+            if (message.Content.Substring(0, 2).ToUpper() == "IM" && message.Author.Username != "Zenith") {
 
                 await message.Channel.SendMessageAsync("Hello," + message.Content.Substring(2) + ", I'm Zenith!");
 
-            }else if (message.Content.Substring(0, 3).ToUpper() == "I'M") {
+            }else if (message.Content.Substring(0, 3).ToUpper() == "I'M" && message.Author.Username != "Zenith") {
 
                 await message.Channel.SendMessageAsync("Hello," + message.Content.Substring(3) + ", I'm Zenith!");
 
@@ -96,9 +92,15 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content == "!xdc90p") {
+            if (message.Content == "!xdc90p" && message.Author.Username == "jheitz223") {
 
                 await message.Channel.SendMessageAsync("I will be right back, Heitz has to work on me again!");
+
+            }
+
+            if (message.Content == "p09cdx!" && message.Author.Username == "jheitz223") {
+
+                await message.Channel.SendMessageAsync("I'm back everyone!");
 
             }
 
