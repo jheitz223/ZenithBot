@@ -5,6 +5,8 @@ using System.IO;
 using Discord.WebSocket;
 using Discord.Commands;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics;
+using Discord.Audio;
 
 namespace ZenithBot {
 
@@ -49,13 +51,41 @@ namespace ZenithBot {
 
         }
 
+        private async Task PlayAudio(string file, IVoiceChannel channel) {
+
+            var audioClient = await channel.ConnectAsync();
+
+            var ffmpegstart = new ProcessStartInfo {
+                FileName = "ffmpeg",
+                Arguments = $"-i {file} -ac 2 -f s16le -ar 48000 pipe:1",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+            };
+
+            var ffmpeg = Process.Start(ffmpegstart);
+            var output = ffmpeg.StandardOutput.BaseStream;
+            var discord = audioClient.CreatePCMStream(AudioApplication.Mixed);
+            await output.CopyToAsync(discord);
+            await discord.FlushAsync();
+            
+
+        }
+
         private async Task MessageReceived(SocketMessage message) {
 
             //TODO
             //
-            //  -bad boi
+            //  
 
-            Console.WriteLine(message.Author.Username);
+            Console.WriteLine(message.Author + " said: \n\t\"" + message.Content + "\"");
+
+            if (message.Content.ToUpper() == "ZENITH, PING!" || message.Content.ToUpper() == "ZENITH, PING") {
+
+                await message.Channel.SendMessageAsync("Pong!");
+
+            }
+
+            if (message.Content == "acks") await message.Channel.SendMessageAsync("Thanks, @_NeinT4Les#1448 for making such great drawings of me! <3");
 
             if ((message.Content.ToUpper() == "IM NOT GAY" || message.Content.ToUpper() == "I'M NOT GAY") && message.Author.Username == "Volare") {
 
@@ -66,12 +96,6 @@ namespace ZenithBot {
             if (message.Content.ToUpper() == "ITS NOT A TRAP" || message.Content.ToUpper() == "SHES NOT A TRAP" || message.Content.ToUpper() == "SHE'S NOT A TRAP" || message.Content.ToUpper() == "IT'S NOT A TRAP") {
 
                 await message.Channel.SendMessageAsync("Sorry, but it's definitely a trap.");
-
-            }
-
-            if (message.Content.ToUpper() == "ZENITH, PING!" || message.Content.ToUpper() == "ZENITH, PING") {
-
-                await message.Channel.SendMessageAsync("Pong!");
 
             }
 
@@ -92,7 +116,14 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content == "!xdc90p" && message.Author.Username == "jheitz223") {
+            if (message.Content.ToUpper() == "ZENITH, WHO'S A BAD BOY" || message.Content.ToUpper() == "ZENITH, WHOS A BAD BOY" || message.Content.ToUpper() == "ZENITH, WHO'S A BAD BOY?" || message.Content.ToUpper() == "ZENITH, WHOS A BAD BOY?") {
+
+                await message.Channel.SendFileAsync("pictures\\officercop.jpg");
+                await message.Channel.SendMessageAsync("(This command was requested by Kieran ¯\\_(ツ)_/¯ )");
+
+            }
+
+                if (message.Content == "!xdc90p" && message.Author.Username == "jheitz223") {
 
                 await message.Channel.SendMessageAsync("I will be right back, Heitz has to work on me again!");
 
@@ -108,6 +139,46 @@ namespace ZenithBot {
 
                 await message.Channel.SendFileAsync(RandomPokemon());
                 await message.Channel.SendMessageAsync("Here you go!");
+
+            }
+
+            if (message.Content.ToUpper() == "ZENITH, YOU'RE AMAZING" || message.Content.ToUpper() == "ZENITH, YOU'RE AMAZING!") {
+
+                await message.Channel.SendMessageAsync("Thank you! <3");
+
+            }
+
+            if (message.Content.Length > 14) {
+
+                if (message.Content.ToUpper().Substring(0, 14) == "ZENITH, SPAM: ") {
+
+                    string spam = message.Content.Substring(14);
+                    await message.Channel.SendMessageAsync("Okay, I will spam \"" + spam + "\" for you.");
+                    for (int i = 0; i <= 19; i++) {
+
+                        await message.Channel.SendMessageAsync(spam);
+
+                    }
+                    await message.Channel.SendMessageAsync("Spammed your message 20 times.");
+
+                }
+
+            }
+
+            if (message.Content.ToUpper() == "Zenith, oof") {
+
+                IVoiceChannel channel = null;
+                channel = (message.Author as IGuildUser).VoiceChannel;
+                if (channel == null) {
+
+                    await message.Channel.SendMessageAsync("Sorry, but you have to be in a voice channel for me to play that.");
+
+                }
+                else {
+
+                    await PlayAudio("sounds\\oof.mp3", channel);
+
+                }
 
             }
 
