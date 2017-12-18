@@ -1,15 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "ba767b1440c04fb2d3ee88eacd0245b38a171502"
+    "signature": "388da21b03f0a002ee7a9fdd93603f45ce0c0304"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "ZenithBot/1.0.0": {
         "dependencies": {
-          "Discord.Net": "1.0.2",
-          "Discord.Net.Providers.WS4Net": "1.0.2"
+          "Discord.Net": "1.0.2"
         },
         "runtime": {
           "ZenithBot.dll": {}
@@ -42,11 +41,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/Discord.Net.Core.dll": {}
-        }
-      },
-      "Discord.Net.Providers.WS4Net/1.0.2": {
-        "runtime": {
-          "lib/net45/Discord.Net.Providers.WS4Net.dll": {}
         }
       },
       "Discord.Net.Rest/1.0.2": {
@@ -1104,13 +1098,6 @@
       "sha512": "sha512-JbvcB5ce2PsFwUwqDg9EcdQNl8Wl8og7+nX6L+taG60CrOoivT2xYX3Wofx60kdF9OTvTyo6/BvZkVltUT2FSQ==",
       "path": "discord.net.core/1.0.2",
       "hashPath": "discord.net.core.1.0.2.nupkg.sha512"
-    },
-    "Discord.Net.Providers.WS4Net/1.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tx1rh2SPGWXIQBcteeOxG8uZPu+BiJFWrYRYONxCrRxmBjoAHCIy2XbCHep9fKDNQHr8xPZrjaOdHO+fPBBXcg==",
-      "path": "discord.net.providers.ws4net/1.0.2",
-      "hashPath": "discord.net.providers.ws4net.1.0.2.nupkg.sha512"
     },
     "Discord.Net.Rest/1.0.2": {
       "type": "package",

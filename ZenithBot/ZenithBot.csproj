@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="Discord.Net" Version="1.0.2" />
-    <PackageReference Include="Discord.Net.Providers.WS4Net" Version="1.0.2" />
   </ItemGroup>
 
 </Project>

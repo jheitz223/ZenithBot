@@ -14,8 +14,6 @@ namespace ZenithBot {
 
         public static void Main(string[] args) => new Program().Start().GetAwaiter().GetResult();
 
-        //public string logName = "C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithLogs\\log" + DateTime.Now + ".txt";
-
         private DiscordSocketClient ZenithSocketClient;
         private CommandService ZenithCommandService;
         private IServiceProvider ZenithServiceProvider;
@@ -41,19 +39,27 @@ namespace ZenithBot {
 
         public async Task Start() {
 
+            Console.WriteLine("Starting Zenith...");
             string token = "Mzg3MDIxOTYxOTE5OTg3NzIy.DRDT0A.2w9-mPw1QfV5mo-rQ7MMCv0VOok";
-            //File.Create(logName);
+            Console.Write("Creating bot client... ");
             ZenithSocketClient = new DiscordSocketClient();
+            Console.WriteLine("Done!");
+            Console.Write("Creating command service... ");
             ZenithCommandService = new CommandService();
+            Console.WriteLine("Done!");
+            Console.Write("Creating service collection... ");
             ZenithServiceProvider = new ServiceCollection()
                 .AddSingleton(ZenithSocketClient)
                 .AddSingleton(ZenithCommandService)
                 .BuildServiceProvider();
-            
+            Console.WriteLine("Done!");
+
+            Console.WriteLine("Starting bot...");
             await ZenithSocketClient.LoginAsync(TokenType.Bot, token);
             await ZenithSocketClient.StartAsync();
-            ZenithSocketClient.MessageReceived += MessageReceived;
+            await ZenithSocketClient.SetGameAsync("Pokémon Crystal");
             Console.WriteLine("\nZenith is now ONLINE.\n\n");
+            ZenithSocketClient.MessageReceived += MessageReceived;
             await Task.Delay(-1);
 
         }
@@ -182,24 +188,13 @@ namespace ZenithBot {
 
                     await message.Channel.SendMessageAsync("Sorry, but you have to be in a voice channel for me to play that.");
 
-                }
-                else {
+                }else {
 
                     await PlayAudio("sounds\\oof.mp3", channel);
 
                 }
 
             }
-
-        }
-
-        private Task Log(LogMessage msg) {
-
-            string[] thing = new string[4096];
-            thing[0] = msg.ToString();
-            Console.WriteLine(msg.ToString());
-            //File.AppendAllLines(logName, thing);
-            return Task.CompletedTask;
 
         }
 

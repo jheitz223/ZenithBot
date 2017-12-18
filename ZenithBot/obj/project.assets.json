@@ -42,15 +42,6 @@
           "lib/netstandard1.3/Discord.Net.Core.dll": {}
         }
       },
-      "Discord.Net.Providers.WS4Net/1.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Discord.Net.Providers.WS4Net.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Discord.Net.Providers.WS4Net.dll": {}
-        }
-      },
       "Discord.Net.Rest/1.0.2": {
         "type": "package",
         "dependencies": {
@@ -1804,17 +1795,6 @@
         "lib/netstandard1.1/Discord.Net.Core.xml",
         "lib/netstandard1.3/Discord.Net.Core.dll",
         "lib/netstandard1.3/Discord.Net.Core.xml"
-      ]
-    },
-    "Discord.Net.Providers.WS4Net/1.0.2": {
-      "sha512": "tx1rh2SPGWXIQBcteeOxG8uZPu+BiJFWrYRYONxCrRxmBjoAHCIy2XbCHep9fKDNQHr8xPZrjaOdHO+fPBBXcg==",
-      "type": "package",
-      "path": "discord.net.providers.ws4net/1.0.2",
-      "files": [
-        "discord.net.providers.ws4net.1.0.2.nupkg.sha512",
-        "discord.net.providers.ws4net.nuspec",
-        "lib/net45/Discord.Net.Providers.WS4Net.dll",
-        "lib/net45/Discord.Net.Providers.WS4Net.xml"
       ]
     },
     "Discord.Net.Rest/1.0.2": {
@@ -5943,7 +5923,6 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Discord.Net >= 1.0.2",
-      "Discord.Net.Providers.WS4Net >= 1.0.2",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
@@ -5953,6 +5932,9 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\ZenithBot.csproj",
       "projectName": "ZenithBot",
@@ -5997,10 +5979,6 @@
           "Discord.Net": {
             "target": "Package",
             "version": "1.0.2"
-          },
-          "Discord.Net.Providers.WS4Net": {
-            "target": "Package",
-            "version": "1.0.2"
           }
         },
         "imports": [
@@ -6010,17 +5988,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Discord.Net.Providers.WS4Net 1.0.2' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Discord.Net.Providers.WS4Net",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }
