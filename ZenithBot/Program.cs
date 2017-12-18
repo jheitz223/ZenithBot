@@ -33,6 +33,12 @@ namespace ZenithBot {
             
         }
 
+        public string RandomTeacher() {
+
+            return Directory.GetFiles("teachers")[(int)Random(0, Directory.GetFiles("teachers").Length)];
+
+        }
+
         public async Task Start() {
 
             string token = "Mzg3MDIxOTYxOTE5OTg3NzIy.DRDT0A.2w9-mPw1QfV5mo-rQ7MMCv0VOok";
@@ -47,6 +53,7 @@ namespace ZenithBot {
             await ZenithSocketClient.LoginAsync(TokenType.Bot, token);
             await ZenithSocketClient.StartAsync();
             ZenithSocketClient.MessageReceived += MessageReceived;
+            Console.WriteLine("\nZenith is now ONLINE.\n\n");
             await Task.Delay(-1);
 
         }
@@ -66,16 +73,11 @@ namespace ZenithBot {
             var output = ffmpeg.StandardOutput.BaseStream;
             var discord = audioClient.CreatePCMStream(AudioApplication.Mixed);
             await output.CopyToAsync(discord);
-            await discord.FlushAsync();
-            
+            await discord.FlushAsync();            
 
         }
 
         private async Task MessageReceived(SocketMessage message) {
-
-            //TODO
-            //
-            //  
 
             Console.WriteLine(message.Author + " said: \n\t\"" + message.Content + "\"");
 
@@ -138,6 +140,13 @@ namespace ZenithBot {
             if (message.Content.ToUpper() == "ZENITH, SHOW ME A RANDOM POKEMON") {
 
                 await message.Channel.SendFileAsync(RandomPokemon());
+                await message.Channel.SendMessageAsync("Here you go!");
+
+            }
+
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A SHITTY TEACHER") {
+
+                await message.Channel.SendFileAsync(RandomTeacher());
                 await message.Channel.SendMessageAsync("Here you go!");
 
             }
