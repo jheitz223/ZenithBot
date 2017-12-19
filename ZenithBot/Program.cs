@@ -27,13 +27,13 @@ namespace ZenithBot {
 
         public string RandomPokemon() {
 
-            return Directory.GetFiles("pokemon")[(int)Random(0, Directory.GetFiles("pokemon").Length)];
+            return Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\pokemon")[(int)Random(0, Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\pokemon").Length)];
             
         }
 
         public string RandomTeacher() {
 
-            return Directory.GetFiles("teachers")[(int)Random(0, Directory.GetFiles("teachers").Length)];
+            return Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\teachers")[(int)Random(0, Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\teachers").Length)];
 
         }
 
@@ -117,16 +117,16 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, SHOW ME A GAY BOI") {
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A GAY BOI" && message.Author.Username != "Zenith") {
 
-                await message.Channel.SendFileAsync("pictures\\socci.jpg");
+                await message.Channel.SendFileAsync("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\pictures\\socci.jpg");
                 await message.Channel.SendMessageAsync("This is Christopher Socci. He's still closeted.");
 
             }
 
             if (message.Content.ToUpper() == "ZENITH, WHO'S A BAD BOY" || message.Content.ToUpper() == "ZENITH, WHOS A BAD BOY" || message.Content.ToUpper() == "ZENITH, WHO'S A BAD BOY?" || message.Content.ToUpper() == "ZENITH, WHOS A BAD BOY?") {
 
-                await message.Channel.SendFileAsync("pictures\\officercop.jpg");
+                await message.Channel.SendFileAsync("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\pictures\\officercop.jpg");
                 await message.Channel.SendMessageAsync("(This command was requested by Kieran ¯\\_(ツ)_/¯ )");
 
             }
@@ -143,14 +143,14 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, SHOW ME A RANDOM POKEMON") {
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A RANDOM POKEMON" && message.Author.Username != "Zenith") {
 
                 await message.Channel.SendFileAsync(RandomPokemon());
                 await message.Channel.SendMessageAsync("Here you go!");
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, SHOW ME A SHITTY TEACHER") {
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A SHITTY TEACHER" && message.Author.Username != "Zenith") {
 
                 await message.Channel.SendFileAsync(RandomTeacher());
                 await message.Channel.SendMessageAsync("Here you go!");
@@ -165,7 +165,7 @@ namespace ZenithBot {
 
             if (message.Content.Length > 14) {
 
-                if (message.Content.ToUpper().Substring(0, 14) == "ZENITH, SPAM: ") {
+                if (message.Content.ToUpper().Substring(0, 14) == "ZENITH, SPAM: " && message.Author.Username != "Zenith") {
 
                     string spam = message.Content.Substring(14);
                     await message.Channel.SendMessageAsync("Okay, I will spam \"" + spam + "\" for you.");
