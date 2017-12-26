@@ -37,10 +37,23 @@ namespace ZenithBot {
 
         }
 
+        public string SchoolShooter() {
+
+            return Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\school shooters")[(int)Random(0, Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\school shooters").Length)];
+
+        }
+
+        public string AcousticChild() {
+
+            return Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\acoustic childs")[(int)Random(0, Directory.GetFiles("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\acoustic childs").Length)];
+
+        }
+
         public async Task Start() {
 
             Console.WriteLine("Starting Zenith...");
-            string token = "Mzg3MDIxOTYxOTE5OTg3NzIy.DRDT0A.2w9-mPw1QfV5mo-rQ7MMCv0VOok";
+            string token = System.IO.File.ReadAllLines("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\Token")[0];
+            Console.WriteLine(token);
             Console.Write("Creating bot client... ");
             ZenithSocketClient = new DiscordSocketClient();
             Console.WriteLine("Done!");
@@ -93,13 +106,13 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content == "acks") await message.Channel.SendMessageAsync("Thanks, @_NeinT4Les#1448 for making such great drawings of me! <3");
-
             if ((message.Content.ToUpper() == "IM NOT GAY" || message.Content.ToUpper() == "I'M NOT GAY") && message.Author.Username == "Volare") {
 
                 await message.Channel.SendMessageAsync("Yes, Socci, you *are* gay.");
 
             }
+
+            if (message.Content == "merry xmas" && message.Author.Username == "jheitz223") await message.Channel.SendMessageAsync("Merry Christmas everyone! :D :two_hearts: :christmas_tree:");
 
             if (message.Content.ToUpper() == "ITS NOT A TRAP" || message.Content.ToUpper() == "SHES NOT A TRAP" || message.Content.ToUpper() == "SHE'S NOT A TRAP" || message.Content.ToUpper() == "IT'S NOT A TRAP") {
 
@@ -117,21 +130,14 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, SHOW ME A GAY BOI" && message.Author.Username != "Zenith") {
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A GAY BOI") {
 
                 await message.Channel.SendFileAsync("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\pictures\\socci.jpg");
                 await message.Channel.SendMessageAsync("This is Christopher Socci. He's still closeted.");
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, WHO'S A BAD BOY" || message.Content.ToUpper() == "ZENITH, WHOS A BAD BOY" || message.Content.ToUpper() == "ZENITH, WHO'S A BAD BOY?" || message.Content.ToUpper() == "ZENITH, WHOS A BAD BOY?") {
-
-                await message.Channel.SendFileAsync("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\pictures\\officercop.jpg");
-                await message.Channel.SendMessageAsync("(This command was requested by Kieran ¯\\_(ツ)_/¯ )");
-
-            }
-
-                if (message.Content == "!xdc90p" && message.Author.Username == "jheitz223") {
+            if (message.Content == "!xdc90p" && message.Author.Username == "jheitz223") {
 
                 await message.Channel.SendMessageAsync("I will be right back, Heitz has to work on me again!");
 
@@ -143,17 +149,41 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, SHOW ME A RANDOM POKEMON" && message.Author.Username != "Zenith") {
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A RANDOM POKEMON") {
 
                 await message.Channel.SendFileAsync(RandomPokemon());
                 await message.Channel.SendMessageAsync("Here you go!");
 
             }
 
-            if (message.Content.ToUpper() == "ZENITH, SHOW ME A SHITTY TEACHER" && message.Author.Username != "Zenith") {
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A SHITTY TEACHER") {
 
                 await message.Channel.SendFileAsync(RandomTeacher());
-                await message.Channel.SendMessageAsync("Here you go!");
+                await message.Channel.SendMessageAsync("Welcome to :b:aint :b:oseph :b:igh s:b:hool.");
+
+            }
+
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME A SCHOOL SHOOTER") {
+
+                //  Suggestions:
+                //  -Bustin Bill
+                //  -Liam Cotter
+                //  -Alex Urhik
+                //  -Diljeet
+                await message.Channel.SendFileAsync(SchoolShooter());
+                await message.Channel.SendMessageAsync("Be sure to keep an eye out, especially when he reaches into his backpack.");
+
+            }
+
+            if (message.Content.ToUpper() == "ZENITH, SHOW ME AN AUTISTIC CHILD") {
+
+                //  Suggestions:
+                //  -Parmalee
+                //  -Schwall
+                //  -Gbogi
+                //  -Diljeet
+                await message.Channel.SendFileAsync(AcousticChild());
+                await message.Channel.SendMessageAsync("This is as autistic as they get.");
 
             }
 
