@@ -49,11 +49,12 @@ namespace ZenithBot {
 
         }
 
+        public string me = "<@284056426760896522>";
+        public string token = System.IO.File.ReadAllLines("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\Zenith.token")[0];
+
         public async Task Start() {
 
             Console.WriteLine("Starting Zenith...");
-            string token = System.IO.File.ReadAllLines("C:\\Users\\jheit\\source\\repos\\ZenithBot\\ZenithBot\\Token")[0];
-            Console.WriteLine(token);
             Console.Write("Creating bot client... ");
             ZenithSocketClient = new DiscordSocketClient();
             Console.WriteLine("Done!");
@@ -120,11 +121,11 @@ namespace ZenithBot {
 
             }
 
-            if (message.Content.Substring(0, 2).ToUpper() == "IM" && message.Author.Username != "Zenith") {
+            if (message.Content.Substring(0, 3).ToUpper() == "IM " && message.Author.Username != "Zenith") {
 
                 await message.Channel.SendMessageAsync("Hello," + message.Content.Substring(2) + ", I'm Zenith!");
 
-            }else if (message.Content.Substring(0, 3).ToUpper() == "I'M" && message.Author.Username != "Zenith") {
+            }else if (message.Content.Substring(0, 4).ToUpper() == "I'M " && message.Author.Username != "Zenith") {
 
                 await message.Channel.SendMessageAsync("Hello," + message.Content.Substring(3) + ", I'm Zenith!");
 
@@ -221,6 +222,20 @@ namespace ZenithBot {
                 }else {
 
                     await PlayAudio("sounds\\oof.mp3", channel);
+
+                }
+
+            }
+
+            if (message.Content.ToUpper().Substring(0, 13) == "ZENITH, SAY: ") {
+
+                if (message.Author.Username == "jheitz223") {
+
+                    await message.Channel.SendMessageAsync(message.Content.Substring(14));
+
+                }else {
+
+                    await message.Channel.SendMessageAsync("Sorry, but only " + me + " can make me say stuff :P (Please don't do the \"I'm\" thing!!!)\nYou can use ```Zenith, spam: ``` if you like.");
 
                 }
 
