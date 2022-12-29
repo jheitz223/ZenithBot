@@ -1,3 +1,9 @@
+#   4.0.2
+Updated version number
+
+#   4.0.1
+Updated bot presence
+
 #   4.0.0
 Initial release
 
