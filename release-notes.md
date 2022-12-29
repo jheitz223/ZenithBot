@@ -1,3 +1,6 @@
+#   4.0.4
+Fixed spacing in `I'm` function
+
 #   4.0.3
 Fixed permissions for `Zenith, say:` command
 

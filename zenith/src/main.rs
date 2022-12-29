@@ -2,7 +2,7 @@ use chrono::{TimeZone, Datelike};
 use substring::Substring;
 
 /*
- * Zenith 4.0.3
+ * Zenith 4.0.4
  * by Jonathan Heitz
  * 2017-2022
  * 2022-2022 now in  R u s t
@@ -161,21 +161,21 @@ impl serenity::client::EventHandler for Bot {
 
 				let _ = msg.channel_id.say(
 					&ctx.http, 
-					format!("Hello, {}, I'm Zenith!", msg.content.substring(2, msg.content.chars().count()))
+					format!("Hello, {}, I'm Zenith!", msg.content.substring(3, msg.content.chars().count()))
 				).await;
 
 			} else if msg_lower.starts_with("i'm ") {
 
 				let _ = msg.channel_id.say(
 					&ctx.http, 
-					format!("Hello, {}, I'm Zenith!", msg.content.substring(3, msg.content.chars().count()))
+					format!("Hello, {}, I'm Zenith!", msg.content.substring(4, msg.content.chars().count()))
 				).await;
 
 			} else if msg_lower.starts_with("i am ") {
 
 				let _ = msg.channel_id.say(
 					&ctx.http, 
-					format!("Hello, {}, I'm Zenith!", msg.content.substring(4, msg.content.chars().count()))
+					format!("Hello, {}, I'm Zenith!", msg.content.substring(5, msg.content.chars().count()))
 				).await;
 
 			}
