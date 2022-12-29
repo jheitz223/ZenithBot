@@ -2,7 +2,7 @@ use chrono::{TimeZone, Datelike};
 use substring::Substring;
 
 /*
- * Zenith 4.0.2
+ * Zenith 4.0.3
  * by Jonathan Heitz
  * 2017-2022
  * 2022-2022 now in  R u s t
@@ -81,7 +81,7 @@ impl serenity::client::EventHandler for Bot {
 
 			else if msg_lower.starts_with("zenith, say: ") {
 
-				if msg.author.id != JHEITZ_ID {
+				if msg.author.id == JHEITZ_ID {
 
 					let _ = msg.channel_id.say(
 						&ctx.http, 

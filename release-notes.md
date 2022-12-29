@@ -1,3 +1,6 @@
+#   4.0.3
+Fixed permissions for `Zenith, say:` command
+
 #   4.0.2
 Updated version number
 
