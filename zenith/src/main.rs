@@ -2,7 +2,7 @@ use chrono::{TimeZone, Datelike};
 use substring::Substring;
 
 /*
- * Zenith 4.0.0
+ * Zenith 4.0.2
  * by Jonathan Heitz
  * 2017-2022
  * 2022-2022 now in  R u s t
