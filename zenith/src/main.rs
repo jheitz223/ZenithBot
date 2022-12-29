@@ -300,7 +300,7 @@ impl serenity::client::EventHandler for Bot {
 				ctx.set_activity(serenity::model::prelude::Activity::playing("on my birthday!")).await;
 			}
 		} else {
-			ctx.set_activity(serenity::model::prelude::Activity::playing("Getting Rusty...")).await;
+			ctx.set_activity(serenity::model::prelude::Activity::playing("Pokémon Crystal")).await;
 		}
 
 		println!("Zenith is now ONLINE");
